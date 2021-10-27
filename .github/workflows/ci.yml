@@ -12,4 +12,4 @@
             distribution: "adopt"
             java-version: 16
         - name: clean build
-          run: ./graldew clean build --info --stacktrace
+          run: ./gradlew clean build --info --stacktrace
