@@ -5,11 +5,21 @@ public class Person {
     private long id;
     private String firstName;
     private String lastName;
+    private boolean vaccinated;
 
-    public Person(long id, String firstName, String lastName) {
+    public Person(long id, String firstName, String lastName, boolean vaccinated) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.vaccinated = vaccinated;
+    }
+
+    public boolean isVaccinated() {
+        return vaccinated;
+    }
+
+    public void setVaccinated(boolean vaccinated) {
+        this.vaccinated = vaccinated;
     }
 
     public long getId() {
