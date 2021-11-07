@@ -15,12 +15,13 @@ public class PersonRestController {
 
     public PersonRestController() {
         persons = new ArrayList<>();
-       // persons.add(new Person(1, "Serkan", "Suluhan"));
-       // persons.add(new Person(2, "Julia", "Brening"));
+        //persons.add(new Person(1, "Serkan", "Suluhan"));
+        //persons.add(new Person(2, "Julia", "Brening"));
     }
 
     @GetMapping(path = "/api/v1/persons")
     public ResponseEntity<List<Person>> fetchPersons() {
+
         return ResponseEntity.ok(persons);
     }
 
