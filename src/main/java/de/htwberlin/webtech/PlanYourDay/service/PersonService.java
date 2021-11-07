@@ -26,6 +26,11 @@ public class PersonService {
                 .collect(Collectors.toList());
     }
 
+    public Person findById(Long id){
+        var personEntity = personRepository.findById(id);
+        return personEntity.isPresent()? transformEntity(personEntity.get()) : null;
+    }
+
     public Person create (PersonCreateRequest request){
         var personEntity = new PersonEntity(request.getFirstName(), request.getLastName());
         personEntity = personRepository.save(personEntity);
