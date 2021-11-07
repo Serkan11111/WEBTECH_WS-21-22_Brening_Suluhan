@@ -1,6 +1,6 @@
 package de.htwberlin.webtech.PlanYourDay;
 
-import de.htwberlin.webtech.PlanYourDay.persistance.PersonRepository;
+import de.htwberlin.webtech.PlanYourDay.service.PersonService;
 import de.htwberlin.webtech.PlanYourDay.web.api.Person;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,17 +12,16 @@ import java.util.List;
 public class PersonRestController {
 
 
-private final PersonRepository personRepository;
+private final PersonService personService;
 
-    public PersonRestController(PersonRepository personRepository) {
-        this.personRepository = personRepository;
+    public PersonRestController(PersonService personService) {
+        this.personService = personService;
     }
 
 
     @GetMapping(path = "/api/v1/persons")
     public ResponseEntity<List<Person>> fetchPersons() {
-        var persons = personRepository.findAll();
-        return ResponseEntity.ok(persons);
+        return ResponseEntity.ok(personService.findAll());
     }
 
 }

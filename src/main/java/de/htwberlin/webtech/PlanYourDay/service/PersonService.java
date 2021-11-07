@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Service
 public class PersonService {
 
-    rivate final PersonRepository personRepository;
+    private final PersonRepository personRepository;
 
     public PersonService(PersonRepository personRepository) {
         this.personRepository = personRepository;
