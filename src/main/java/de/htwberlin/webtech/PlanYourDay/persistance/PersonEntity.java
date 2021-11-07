@@ -17,8 +17,8 @@ public class PersonEntity {
     private String lastName;
 
 
-    public PersonEntity(Long id, String firstName, String lastName) {
-        this.id = id;
+    public PersonEntity(String firstName, String lastName) {
+
         this.firstName = firstName;
         this.lastName = lastName;
     }
