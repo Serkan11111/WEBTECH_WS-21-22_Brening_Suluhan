@@ -31,7 +31,7 @@ private final PersonService personService;
     @GetMapping(path = "/api/v1/persons/{id}")
     public ResponseEntity<Person> fetchPersonById(@PathVariable(name = "id") Long id){
         var person = personService.findById(id);
-        return ResponseEntity.ok(person);
+        return person != null? ResponseEntity.ok(person): ResponseEntity.notFound().build();
     }
 
 
