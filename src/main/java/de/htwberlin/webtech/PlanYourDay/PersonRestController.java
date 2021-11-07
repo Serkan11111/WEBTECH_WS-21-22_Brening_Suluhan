@@ -42,13 +42,15 @@ private final PersonService personService;
 
         }
 
-
         @PutMapping(path = "/api/v1/persons/{id}")
         public ResponseEntity<Person> updatePerson(@PathVariable(name = "id") Long id, @RequestBody PersonManipulationRequest request) {
                var person = personService.update(id, request);
                return person != null? ResponseEntity.ok(person): ResponseEntity.notFound().build();
         }
 
-
-
+        @DeleteMapping(path = "/api/v1/persons/{id}")
+        public ResponseEntity<Void> deletePerson(@PathVariable Long id){
+        boolean successful = personService.deleteById(id);
+        return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+        }
 }
