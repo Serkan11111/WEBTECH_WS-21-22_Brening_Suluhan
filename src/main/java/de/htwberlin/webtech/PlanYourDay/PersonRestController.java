@@ -2,7 +2,7 @@ package de.htwberlin.webtech.PlanYourDay;
 
 import de.htwberlin.webtech.PlanYourDay.service.PersonService;
 import de.htwberlin.webtech.PlanYourDay.web.api.Person;
-import de.htwberlin.webtech.PlanYourDay.web.api.PersonCreateRequest;
+import de.htwberlin.webtech.PlanYourDay.web.api.PersonManipulationRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +22,6 @@ private final PersonService personService;
         this.personService = personService;
     }
 
-
     @GetMapping(path = "/api/v1/persons")
     public ResponseEntity<List<Person>> fetchPersons() {
         return ResponseEntity.ok(personService.findAll());
@@ -35,15 +34,21 @@ private final PersonService personService;
     }
 
 
+        @PostMapping(path = "/api/v1/persons")
+            public ResponseEntity<Void> createPerson(@RequestBody PersonManipulationRequest request) throws URISyntaxException {
+                var person = personService.create(request);
+                URI uri = new URI("/api/v1/persons/" + person.getId());
+                return ResponseEntity.created(uri).build();
+
+        }
 
 
-@PostMapping(path = "/api/v1/persons")
-    public ResponseEntity<Void> createPerson(@RequestBody PersonCreateRequest request) throws URISyntaxException {
-      var person = personService.create(request);
-    URI uri = new URI("/api/v1/persons/" + person.getId());
-      return ResponseEntity.created(uri).build();
+        @PutMapping(path = "/api/v1/persons/{id}")
+        public ResponseEntity<Person> updatePerson(@PathVariable(name = "id") Long id, @RequestBody PersonManipulationRequest request) {
+               var person = personService.update(id, request);
+               return person != null? ResponseEntity.ok(person): ResponseEntity.notFound().build();
+        }
 
-}
 
 
 }
