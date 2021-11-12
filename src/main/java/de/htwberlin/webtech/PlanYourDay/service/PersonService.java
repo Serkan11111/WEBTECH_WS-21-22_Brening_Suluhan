@@ -68,7 +68,7 @@ public class PersonService {
         return new Person(
                     personEntity.getId(),
                     personEntity.getFirstName(),
-                    personEntity.getFirstName()
+                    personEntity.getLastName()
         );
     }
 }
