@@ -16,6 +16,7 @@ public class PersonService {
     private final PersonRepository personRepository;
 
     public PersonService(PersonRepository personRepository) {
+
         this.personRepository = personRepository;
     }
 
@@ -32,7 +33,7 @@ public class PersonService {
     }
 
     public Person create (PersonManipulationRequest request){
-        var personEntity = new PersonEntity(request.getFirstName(), request.getLastName());
+        var personEntity = new PersonEntity(request.getToDoTitle(), request.getLastName());
         personEntity = personRepository.save(personEntity);
         return transformEntity(personEntity);
 
@@ -44,13 +45,12 @@ public class PersonService {
             return null;
         }
                 var personEntity = personEntityOptional.get();
-                personEntity.setFirstName(request.getFirstName());
+                personEntity.setToDoTitle(request.getToDoTitle());
                 personEntity.setLastName(request.getLastName());
 
                 personEntity = personRepository.save(personEntity);
 
                 return transformEntity(personEntity);
-
 
     }
 
@@ -67,8 +67,15 @@ public class PersonService {
     private Person transformEntity(PersonEntity personEntity){
         return new Person(
                     personEntity.getId(),
-                    personEntity.getFirstName(),
-                    personEntity.getFirstName()
+                    personEntity.getToDoTitle(),
+                    personEntity.getLastName()
+                //datum
+                //prio
+                //text
+                //title
+                //tag
+                //modulfilter
+
         );
     }
 }

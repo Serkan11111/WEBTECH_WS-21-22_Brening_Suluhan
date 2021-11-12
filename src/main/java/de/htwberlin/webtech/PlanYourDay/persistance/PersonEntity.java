@@ -10,16 +10,16 @@ public class PersonEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "firstName", nullable = false)
-    private String firstName;
+    @Column(name = "toDoTitle", nullable = false)
+    private String toDoTitle;
 
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
 
-    public PersonEntity(String firstName, String lastName) {
+    public PersonEntity(String toDoTitle, String lastName) {
 
-        this.firstName = firstName;
+        this.toDoTitle = toDoTitle;
         this.lastName = lastName;
     }
 
@@ -32,14 +32,14 @@ public class PersonEntity {
         return id;
     }
 
-    public String getFirstName() {
+    public String getToDoTitle() {
 
-        return firstName;
+        return toDoTitle;
     }
 
-    public void setFirstName(String firstName) {
+    public void setToDoTitle(String toDoTitle) {
 
-        this.firstName = firstName;
+        this.toDoTitle = toDoTitle;
     }
 
     public String getLastName() {

@@ -3,41 +3,46 @@ package de.htwberlin.webtech.PlanYourDay.web.api;
 public class Person {
 
     private long id;
-    private String firstName;
+    private String toDoTitle;
     private String lastName;
-    private boolean vaccinated;
 
-    public Person(long id, String firstName, String lastName) {
+
+    public Person(long id, String toDoTitle, String lastName) {
         this.id = id;
-        this.firstName = firstName;
+        this.toDoTitle = toDoTitle;
         this.lastName = lastName;
-        this.vaccinated = vaccinated;
     }
 
 
 
 
     public long getId() {
+
         return id;
     }
 
     public void setId(long id) {
+
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getToDoTitle() {
+
+        return toDoTitle;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setToDoTitle(String toDoTitle) {
+
+        this.toDoTitle = toDoTitle;
     }
 
     public String getLastName() {
+
         return lastName;
     }
 
     public void setLastName(String lastName) {
+
         this.lastName = lastName;
     }
 }
