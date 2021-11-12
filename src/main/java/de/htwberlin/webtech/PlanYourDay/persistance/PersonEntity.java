@@ -13,14 +13,14 @@ public class PersonEntity {
     @Column(name = "toDoTitle", nullable = false)
     private String toDoTitle;
 
-    @Column(name = "lastName", nullable = false)
-    private String lastName;
+    @Column(name = "toDoDescription", nullable = false)
+    private String toDoDescription;
 
 
-    public PersonEntity(String toDoTitle, String lastName) {
+    public PersonEntity(String toDoTitle, String toDoDescription) {
 
         this.toDoTitle = toDoTitle;
-        this.lastName = lastName;
+        this.toDoDescription = toDoDescription;
     }
 
     protected PersonEntity() {
@@ -42,13 +42,13 @@ public class PersonEntity {
         this.toDoTitle = toDoTitle;
     }
 
-    public String getLastName() {
+    public String getToDoDescription() {
 
-        return lastName;
+        return toDoDescription;
     }
 
-    public void setLastName(String lastName) {
+    public void setToDoDescription(String toDoDescription) {
 
-        this.lastName = lastName;
+        this.toDoDescription = toDoDescription;
     }
 }

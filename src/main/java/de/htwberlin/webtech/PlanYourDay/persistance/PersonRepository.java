@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 public interface PersonRepository extends JpaRepository<PersonEntity, Long> {
 
-    List<PersonEntity> findAllByToDoTitle(String firstName);
-    List<PersonEntity> findAllByLastName(String lastName);
-    List<PersonEntity> findAllByToDoTitleAndLastName(String toDoTitle, String lastName);
+    List<PersonEntity> findAllByToDoTitle(String toDoTitle);
+    List<PersonEntity> findAllByToDoDescription(String toDoDescription);
+    List<PersonEntity> findAllByToDoTitleAndToDoDescription(String toDoTitle, String toDoDescription);
 
 }

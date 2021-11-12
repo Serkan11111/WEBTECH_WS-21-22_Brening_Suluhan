@@ -4,13 +4,13 @@ public class Person {
 
     private long id;
     private String toDoTitle;
-    private String lastName;
+    private String toDoDescription;
 
 
-    public Person(long id, String toDoTitle, String lastName) {
+    public Person(long id, String toDoTitle, String toDoDescription) {
         this.id = id;
         this.toDoTitle = toDoTitle;
-        this.lastName = lastName;
+        this.toDoDescription = toDoDescription;
     }
 
 
@@ -36,13 +36,13 @@ public class Person {
         this.toDoTitle = toDoTitle;
     }
 
-    public String getLastName() {
+    public String gettoDoDescription() {
 
-        return lastName;
+        return toDoDescription;
     }
 
-    public void setLastName(String lastName) {
+    public void settoDoDescription(String toDoDescription) {
 
-        this.lastName = lastName;
+        this.toDoDescription = toDoDescription;
     }
 }

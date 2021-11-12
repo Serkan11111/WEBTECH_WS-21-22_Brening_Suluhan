@@ -3,11 +3,11 @@ package de.htwberlin.webtech.PlanYourDay.web.api;
 public class PersonManipulationRequest {
 
     private String toDoTitle;
-    private String lastName;
+    private String toDoDescription;
 
-    public PersonManipulationRequest(String toDoTitle, String lastName) {
+    public PersonManipulationRequest(String toDoTitle, String toDoDescription) {
         this.toDoTitle = toDoTitle;
-        this.lastName = lastName;
+        this.toDoDescription = toDoDescription;
     }
 
     public String getToDoTitle() {
@@ -20,12 +20,13 @@ public class PersonManipulationRequest {
         this.toDoTitle = toDoTitle;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getToDoDescription() {
+
+        return toDoDescription;
     }
 
-    public void setLastName(String lastName) {
+    public void setToDoDescription(String toDoDescription) {
 
-        this.lastName = lastName;
+        this.toDoDescription = toDoDescription;
     }
 }

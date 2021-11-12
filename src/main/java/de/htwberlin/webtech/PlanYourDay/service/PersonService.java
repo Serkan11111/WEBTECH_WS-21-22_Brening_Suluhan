@@ -33,7 +33,7 @@ public class PersonService {
     }
 
     public Person create (PersonManipulationRequest request){
-        var personEntity = new PersonEntity(request.getToDoTitle(), request.getLastName());
+        var personEntity = new PersonEntity(request.getToDoTitle(), request.getToDoDescription());
         personEntity = personRepository.save(personEntity);
         return transformEntity(personEntity);
 
@@ -46,7 +46,7 @@ public class PersonService {
         }
                 var personEntity = personEntityOptional.get();
                 personEntity.setToDoTitle(request.getToDoTitle());
-                personEntity.setLastName(request.getLastName());
+                personEntity.setToDoDescription(request.getToDoDescription());
 
                 personEntity = personRepository.save(personEntity);
 
@@ -68,7 +68,7 @@ public class PersonService {
         return new Person(
                     personEntity.getId(),
                     personEntity.getToDoTitle(),
-                    personEntity.getLastName()
+                    personEntity.getToDoDescription()
                 //datum
                 //prio
                 //text
