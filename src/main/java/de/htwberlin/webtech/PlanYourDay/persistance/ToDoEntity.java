@@ -2,7 +2,7 @@ package de.htwberlin.webtech.PlanYourDay.persistance;
 
 import javax.persistence.*;
 
-@Entity(name= "todos")
+@Entity(name = "todos")
 public class ToDoEntity {
 
     @Id
@@ -16,11 +16,14 @@ public class ToDoEntity {
     @Column(name = "description", nullable = false)
     private String description;
 
+    @Column(name = "is_done")
+    private Boolean done;
 
-    public ToDoEntity(String toDo, String description) {
+    public ToDoEntity(String toDo, String description, Boolean done) {
 
         this.toDo = toDo;
         this.description = description;
+        this.done = done;
     }
 
     protected ToDoEntity() {
@@ -50,5 +53,14 @@ public class ToDoEntity {
     public void setDescription(String description) {
 
         this.description = description;
+    }
+
+
+    public Boolean getDone() {
+        return done;
+    }
+
+    public void setDone(Boolean done) {
+        this.done = done;
     }
 }

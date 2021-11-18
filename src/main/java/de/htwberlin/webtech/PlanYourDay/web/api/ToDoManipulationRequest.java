@@ -4,10 +4,12 @@ public class ToDoManipulationRequest {
 
     private String toDo;
     private String description;
+    private boolean done;
 
-    public ToDoManipulationRequest(String toDo, String description) {
+    public ToDoManipulationRequest(String toDo, String description, boolean done) {
         this.toDo = toDo;
         this.description = description;
+        this.done = done;
     }
 
     public String getToDo() {
@@ -27,5 +29,13 @@ public class ToDoManipulationRequest {
     public void setDescription(String description) {
 
         this.description = description;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 }

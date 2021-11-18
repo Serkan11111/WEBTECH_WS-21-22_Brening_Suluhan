@@ -32,7 +32,7 @@ public class ToDoService {
     }
 
     public ToDo create (ToDoManipulationRequest request){
-        var toDoEntity = new ToDoEntity(request.getToDo(), request.getDescription());
+        var toDoEntity = new ToDoEntity(request.getToDo(), request.getDescription(), request.isDone());
         toDoEntity = toDoRepository.save(toDoEntity);
         return transformEntity(toDoEntity);
 
@@ -46,7 +46,7 @@ public class ToDoService {
                 var toDoEntity = toDoEntityOptional.get();
                 toDoEntity.setToDo(request.getToDo());
                 toDoEntity.setDescription(request.getDescription());
-
+                toDoEntity.setDone(request.isDone());
                 toDoEntity = toDoRepository.save(toDoEntity);
 
                 return transformEntity(toDoEntity);
@@ -68,7 +68,8 @@ public class ToDoService {
         return new ToDo(
                 toDoEntity.getId(),
                 toDoEntity.getToDo(),
-                toDoEntity.getDescription()
+                toDoEntity.getDescription(),
+                toDoEntity.getDone()
         );
     }
 }
