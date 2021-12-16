@@ -12,6 +12,10 @@ public class ToDoManipulationRequest {
         this.done = done;
     }
 
+    public ToDoManipulationRequest(){
+
+    }
+
     public String getToDo() {
         return toDo;
     }
