@@ -4,12 +4,22 @@ public class ToDoManipulationRequest {
 
     private String toDo;
     private String description;
+    private String module;
     private boolean done;
 
-    public ToDoManipulationRequest(String toDo, String description, boolean done) {
+    public ToDoManipulationRequest(String toDo, String description, boolean done, String module) {
         this.toDo = toDo;
         this.description = description;
         this.done = done;
+        this.module = module;
+    }
+
+    public String getModule() {
+        return module;
+    }
+
+    public void setModule(String module) {
+        this.module = module;
     }
 
     public ToDoManipulationRequest(){

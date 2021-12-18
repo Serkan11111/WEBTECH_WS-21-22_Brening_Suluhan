@@ -5,17 +5,25 @@ public class ToDo {
     private long id;
     private String toDo;
     private String description;
+    private String module;
     private boolean done;
 
 
-    public ToDo(long id, String toDo, String description, boolean done) {
+    public ToDo(long id, String toDo, String description, boolean done, String module) {
         this.id = id;
         this.toDo = toDo;
-        this.description = description; //ToDoDescription
+        this.description = description;
         this.done = done;
-
+        this.module = module;
     }
 
+    public String getModule() {
+        return module;
+    }
+
+    public void setModule(String module) {
+        this.module = module;
+    }
 
     public long getId() {
 

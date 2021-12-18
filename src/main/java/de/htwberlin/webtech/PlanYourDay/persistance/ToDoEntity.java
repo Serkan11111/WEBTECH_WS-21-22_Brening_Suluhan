@@ -19,15 +19,27 @@ public class ToDoEntity {
     @Column(name = "is_done")
     private Boolean done;
 
-    public ToDoEntity(String toDo, String description, Boolean done) {
+    @Column(name = "module")
+    private String module;
+
+    public ToDoEntity(String toDo, String description, Boolean done, String module) {
 
         this.toDo = toDo;
         this.description = description;
         this.done = done;
+        this.module = module;
     }
 
     protected ToDoEntity() {
 
+    }
+
+    public String getModule() {
+        return module;
+    }
+
+    public void setModule(String module) {
+        this.module = module;
     }
 
     public Long getId() {
