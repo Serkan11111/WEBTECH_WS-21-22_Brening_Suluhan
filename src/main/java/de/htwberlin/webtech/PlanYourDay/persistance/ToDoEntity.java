@@ -19,19 +19,31 @@ public class ToDoEntity {
     @Column(name = "is_done")
     private Boolean done;
 
-    @Column(name = "module")
+    @Column(name = "module", nullable = false)
     private String module;
 
-    public ToDoEntity(String toDo, String description, Boolean done, String module) {
+    @Column(name = "priorisierung")
+    private int prio;
+
+    public ToDoEntity(String toDo, String description, Boolean done, String module, int prio) {
 
         this.toDo = toDo;
         this.description = description;
         this.done = done;
         this.module = module;
+        this.prio = prio;
     }
 
     protected ToDoEntity() {
 
+    }
+
+    public int getPrio() {
+        return prio;
+    }
+
+    public void setPrio(int prio) {
+        this.prio = prio;
     }
 
     public String getModule() {
