@@ -7,24 +7,14 @@ public class ToDo {
     private String description;
     private String module;
     private boolean done;
-    private int prio;
 
 
-    public ToDo(long id, String toDo, String description, boolean done, String module,int prio) {
+    public ToDo(long id, String toDo, String description, boolean done, String module) {
         this.id = id;
         this.toDo = toDo;
         this.description = description;
         this.done = done;
         this.module = module;
-        this.prio = prio;
-    }
-
-    public int getPrio() {
-        return prio;
-    }
-
-    public void setPrio(int prio) {
-        this.prio = prio;
     }
 
     public String getModule() {

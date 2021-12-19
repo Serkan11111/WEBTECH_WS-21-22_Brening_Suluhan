@@ -6,22 +6,12 @@ public class ToDoManipulationRequest {
     private String description;
     private String module;
     private boolean done;
-    private int prio;
 
-    public ToDoManipulationRequest(String toDo, String description, boolean done, String module, int prio) {
+    public ToDoManipulationRequest(String toDo, String description, boolean done, String module) {
         this.toDo = toDo;
         this.description = description;
         this.done = done;
         this.module = module;
-        this.prio = prio;
-    }
-
-    public int getPrio() {
-        return prio;
-    }
-
-    public void setPrio(int prio) {
-        this.prio = prio;
     }
 
     public String getModule() {

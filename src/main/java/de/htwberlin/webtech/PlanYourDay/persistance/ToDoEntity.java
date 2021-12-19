@@ -22,28 +22,17 @@ public class ToDoEntity {
     @Column(name = "module", nullable = false)
     private String module;
 
-    @Column(name = "priorisierung")
-    private int prio;
 
-    public ToDoEntity(String toDo, String description, Boolean done, String module, int prio) {
+    public ToDoEntity(String toDo, String description, Boolean done, String module) {
 
         this.toDo = toDo;
         this.description = description;
         this.done = done;
         this.module = module;
-        this.prio = prio;
     }
 
     protected ToDoEntity() {
 
-    }
-
-    public int getPrio() {
-        return prio;
-    }
-
-    public void setPrio(int prio) {
-        this.prio = prio;
     }
 
     public String getModule() {

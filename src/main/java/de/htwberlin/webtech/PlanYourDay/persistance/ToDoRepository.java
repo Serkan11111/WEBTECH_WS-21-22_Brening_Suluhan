@@ -14,5 +14,4 @@ public interface ToDoRepository extends JpaRepository<ToDoEntity, Long> {
     List<ToDoEntity> findAllByToDoAndDescription(String toDo, String description);
     List<ToDoEntity> findAllByDone(Boolean done);
     List<ToDoEntity> findAllByModule(String module);
-    List<ToDoEntity> findAllByPrio(int prio);
 }
