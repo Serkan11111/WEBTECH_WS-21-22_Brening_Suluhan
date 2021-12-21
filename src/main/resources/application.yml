@@ -18,3 +18,7 @@ spring:
     hibernate:
       ddl-auto: update # (create, create-drop, validate, update)
     open-in-view: false
+    sql:
+      init:
+        platform: postgres
+        mode: always
