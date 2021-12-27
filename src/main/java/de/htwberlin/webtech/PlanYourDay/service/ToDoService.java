@@ -1,8 +1,8 @@
 package de.htwberlin.webtech.PlanYourDay.service;
 
 
-import de.htwberlin.webtech.PlanYourDay.persistance.ToDoEntity;
-import de.htwberlin.webtech.PlanYourDay.persistance.ToDoRepository;
+import de.htwberlin.webtech.PlanYourDay.persistence.ToDoEntity;
+import de.htwberlin.webtech.PlanYourDay.persistence.ToDoRepository;
 import de.htwberlin.webtech.PlanYourDay.web.api.ToDo;
 import de.htwberlin.webtech.PlanYourDay.web.api.ToDoManipulationRequest;
 import org.springframework.stereotype.Service;
@@ -14,28 +14,43 @@ import java.util.stream.Collectors;
 public class ToDoService {
 
     private final ToDoRepository toDoRepository;
+    private final ToDoTransformer toDoTransformer;
 
-    public ToDoService(ToDoRepository toDoRepository) {
+    public ToDoService(ToDoRepository toDoRepository, ToDoTransformer toDoTransformer) {
         this.toDoRepository = toDoRepository;
+        this.toDoTransformer = toDoTransformer;
     }
 
     public List<ToDo> findAll(){
-        List <ToDoEntity> todos = toDoRepository.findAll();
-        return todos.stream()
-                .map(this::transformEntity)
+        List<ToDoEntity> toDos = toDoRepository.findAll();
+        return toDos.stream()
+                .map(toDoTransformer::transformEntity)
+                .collect(Collectors.toList());
+    }
+
+    public List<ToDo> findByModule(String module){
+        List<ToDoEntity> toDos = toDoRepository.findAllByModule(module);
+        return toDos.stream()
+                .map(toDoTransformer::transformEntity)
+                .collect(Collectors.toList());
+    }
+
+    public List<ToDo> findByDate(String date){
+        List<ToDoEntity> toDos = toDoRepository.findAllByDate(date);
+        return toDos.stream()
+                .map(toDoTransformer::transformEntity)
                 .collect(Collectors.toList());
     }
 
     public ToDo findById(Long id){
         var toDoEntity = toDoRepository.findById(id);
-        return toDoEntity.isPresent()? transformEntity(toDoEntity.get()) : null;
+        return toDoEntity.map(toDoTransformer::transformEntity).orElse(null);
     }
 
-    public ToDo create (ToDoManipulationRequest request){
-        var toDoEntity = new ToDoEntity(request.getToDo(), request.getDescription(), request.isDone(), request.getModule());
+    public ToDo create(ToDoManipulationRequest request) {
+        var toDoEntity = new ToDoEntity(request.getTitel(), request.getDescription(), request.getModule(), request.getDate(), request.getDone());
         toDoEntity = toDoRepository.save(toDoEntity);
-        return transformEntity(toDoEntity);
-
+        return toDoTransformer.transformEntity(toDoEntity);
     }
 
     public ToDo update(Long id, ToDoManipulationRequest request){
@@ -44,15 +59,13 @@ public class ToDoService {
             return null;
         }
                 var toDoEntity = toDoEntityOptional.get();
-                toDoEntity.setToDo(request.getToDo());
+                toDoEntity.setTitel(request.getTitel());
                 toDoEntity.setDescription(request.getDescription());
-                toDoEntity.setDone(request.isDone());
                 toDoEntity.setModule(request.getModule());
+                toDoEntity.setDate(request.getDate());
+                toDoEntity.setDone(request.getDone());
                 toDoEntity = toDoRepository.save(toDoEntity);
-
-                return transformEntity(toDoEntity);
-
-
+                return toDoTransformer.transformEntity(toDoEntity);
     }
 
     public boolean deleteById(Long id){
@@ -62,16 +75,5 @@ public class ToDoService {
 
         toDoRepository.deleteById(id);
         return true;
-    }
-
-
-    private ToDo transformEntity(ToDoEntity toDoEntity){
-        return new ToDo(
-                toDoEntity.getId(),
-                toDoEntity.getToDo(),
-                toDoEntity.getDescription(),
-                toDoEntity.getDone(),
-                toDoEntity.getModule()
-        );
     }
 }

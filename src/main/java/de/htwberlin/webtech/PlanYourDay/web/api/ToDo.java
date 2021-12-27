@@ -3,26 +3,35 @@ package de.htwberlin.webtech.PlanYourDay.web.api;
 public class ToDo {
 
     private long id;
-    private String toDo;
+    private String titel;
     private String description;
     private String module;
+    private String date;
     private boolean done;
 
-
-    public ToDo(long id, String toDo, String description, boolean done, String module) {
+    public ToDo(long id, String titel, String description, String module, String date, boolean done) {
         this.id = id;
-        this.toDo = toDo;
+        this.titel = titel;
         this.description = description;
+        this.module = module;
+        this.date = date;
         this.done = done;
-        this.module = module;
     }
 
-    public String getModule() {
-        return module;
+    public String getDate() {
+        return date;
     }
 
-    public void setModule(String module) {
-        this.module = module;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     public long getId() {
@@ -35,14 +44,14 @@ public class ToDo {
         this.id = id;
     }
 
-    public String getToDo() {
+    public String getTitel() {
 
-        return toDo;
+        return titel;
     }
 
-    public void setToDo(String toDo) {
+    public void setTitel(String titel) {
 
-        this.toDo = toDo;
+        this.titel = titel;
     }
 
     public String getDescription() {
@@ -55,11 +64,11 @@ public class ToDo {
         this.description = description;
     }
 
-    public boolean isDone() {
-        return done;
+    public String getModule() {
+        return module;
     }
 
-    public void setDone(boolean done) {
-        this.done = done;
+    public void setModule(String module) {
+        this.module = module;
     }
 }
