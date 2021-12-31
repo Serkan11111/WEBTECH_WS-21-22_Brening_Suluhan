@@ -7,10 +7,10 @@ public class ToDo {
     private String description;
     private String module;
     private String date;
-    private boolean done;
+    private Boolean done;
     private boolean isFavorite;
 
-    public ToDo(long id, String titel, String description, String module, String date, boolean done, boolean isFavorite) {
+    public ToDo(long id, String titel, String description, String module, String date, Boolean done, boolean isFavorite) {
         this.id = id;
         this.titel = titel;
         this.description = description;
@@ -28,11 +28,11 @@ public class ToDo {
         this.date = date;
     }
 
-    public boolean isDone() {
+    public Boolean isDone() {
         return done;
     }
 
-    public void setDone(boolean done) {
+    public void setDone(Boolean done) {
         this.done = done;
     }
 
