@@ -1,16 +1,19 @@
 package de.htwberlin.webtech.PlanYourDay.web.api;
 
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 public class ToDoManipulationRequest {
-    @Size(min = 3, message = "Please provide a To Do with 3 characters or more.")
+    @Size(min = 3, message = "Bitte gib eine To Do mit mindestens 3 Zeichen ein.")
     private String titel;
-    @NotBlank(message = "The description must not be empty.")
+    @NotBlank(message = "Bitte gib eine nähere Beschreibung zu deiner To Do ein.")
     private String description;
-    @NotBlank(message = "The module must not be empty.")
+    @NotBlank(message = "Bitte gib das Modul deiner To Do ein.")
     private String module;
-    private String date;
+    @FutureOrPresent(message = "Bitte wähle das heutige Datum oder ein Datum in der Zukunft aus.")
+    private LocalDate date;
     private Boolean done;
     private Boolean isFavorite;
 
@@ -43,11 +46,11 @@ public class ToDoManipulationRequest {
         this.module = module;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

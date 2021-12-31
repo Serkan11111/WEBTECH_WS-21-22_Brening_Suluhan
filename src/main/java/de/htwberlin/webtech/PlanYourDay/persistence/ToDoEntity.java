@@ -1,6 +1,7 @@
 package de.htwberlin.webtech.PlanYourDay.persistence;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity(name = "toDos")
 public class ToDoEntity {
@@ -20,7 +21,7 @@ public class ToDoEntity {
     private String module;
 
     @Column(name = "date", nullable = false)
-    private String date;
+    private LocalDate date;
 
     @Column(name = "is_done")
     private Boolean done;
@@ -28,7 +29,7 @@ public class ToDoEntity {
     @Column(name = "is_Favorite")
     private Boolean isFavorite;
 
-    public ToDoEntity(String titel, String description, String module, String date, Boolean done, Boolean isFavorite) {
+    public ToDoEntity(String titel, String description, String module, LocalDate date, Boolean done, Boolean isFavorite) {
 
         this.titel = titel;
         this.description = description;
@@ -68,11 +69,11 @@ public class ToDoEntity {
         this.module = module;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

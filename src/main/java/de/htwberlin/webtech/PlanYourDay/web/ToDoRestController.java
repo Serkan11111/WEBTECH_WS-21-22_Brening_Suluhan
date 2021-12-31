@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -39,7 +40,7 @@ private final ToDoService toDoService;
     }
 
     @GetMapping(path = "/api/v1/todos/{date}")
-    public ResponseEntity<List<ToDo>> fetchToDosByDate(@PathVariable String date) {
+    public ResponseEntity<List<ToDo>> fetchToDosByDate(@PathVariable LocalDate date) {
         return ResponseEntity.ok(toDoService.findByDate(date));
     }
 

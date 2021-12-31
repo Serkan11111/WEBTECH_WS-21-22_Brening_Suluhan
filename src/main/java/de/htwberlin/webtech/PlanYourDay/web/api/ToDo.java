@@ -1,16 +1,18 @@
 package de.htwberlin.webtech.PlanYourDay.web.api;
 
+import java.time.LocalDate;
+
 public class ToDo {
 
     private long id;
     private String titel;
     private String description;
     private String module;
-    private String date;
+    private LocalDate date;
     private Boolean done;
-    private boolean isFavorite;
+    private Boolean isFavorite;
 
-    public ToDo(long id, String titel, String description, String module, String date, Boolean done, boolean isFavorite) {
+    public ToDo(long id, String titel, String description, String module, LocalDate date, Boolean done, Boolean isFavorite) {
         this.id = id;
         this.titel = titel;
         this.description = description;
@@ -20,11 +22,11 @@ public class ToDo {
         this.isFavorite = isFavorite;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -74,11 +76,11 @@ public class ToDo {
         this.module = module;
     }
 
-    public boolean isFavorite() {
+    public Boolean isFavorite() {
         return isFavorite;
     }
 
-    public void setFavorite(boolean favorite) {
+    public void setFavorite(Boolean favorite) {
         isFavorite = favorite;
     }
 }
