@@ -12,6 +12,7 @@ public class ToDoManipulationRequest {
     private String module;
     private String date;
     private Boolean done;
+    private Boolean isFavorite;
 
     public ToDoManipulationRequest() {
     }
@@ -56,5 +57,13 @@ public class ToDoManipulationRequest {
 
     public void setDone(Boolean done) {
         this.done = done;
+    }
+
+    public Boolean getFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(Boolean favorite) {
+        isFavorite = favorite;
     }
 }

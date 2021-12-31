@@ -8,14 +8,16 @@ public class ToDo {
     private String module;
     private String date;
     private boolean done;
+    private boolean isFavorite;
 
-    public ToDo(long id, String titel, String description, String module, String date, boolean done) {
+    public ToDo(long id, String titel, String description, String module, String date, boolean done, boolean isFavorite) {
         this.id = id;
         this.titel = titel;
         this.description = description;
         this.module = module;
         this.date = date;
         this.done = done;
+        this.isFavorite = isFavorite;
     }
 
     public String getDate() {
@@ -70,5 +72,13 @@ public class ToDo {
 
     public void setModule(String module) {
         this.module = module;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 }

@@ -25,13 +25,17 @@ public class ToDoEntity {
     @Column(name = "is_done")
     private Boolean done;
 
-    public ToDoEntity(String titel, String description, String module, String date, Boolean done) {
+    @Column(name = "is_Favorite")
+    private Boolean isFavorite;
+
+    public ToDoEntity(String titel, String description, String module, String date, Boolean done, Boolean isFavorite) {
 
         this.titel = titel;
         this.description = description;
         this.module = module;
         this.date = date;
         this.done = done;
+        this.isFavorite = isFavorite;
     }
 
     protected ToDoEntity() {    }
@@ -78,5 +82,13 @@ public class ToDoEntity {
 
     public Boolean getDone() {
         return done;
+    }
+
+    public Boolean getFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(Boolean favorite) {
+        isFavorite = favorite;
     }
 }

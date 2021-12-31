@@ -14,6 +14,7 @@ public class ToDoTransformer {
                 toDoEntity.getDescription(),
                 toDoEntity.getModule(),
                 toDoEntity.getDate(),
-                toDoEntity.getDone());
+                toDoEntity.getDone(),
+                toDoEntity.getFavorite());
     }
 }
