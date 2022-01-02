@@ -7,7 +7,6 @@ import de.htwberlin.webtech.PlanYourDay.web.api.ToDo;
 import de.htwberlin.webtech.PlanYourDay.web.api.ToDoManipulationRequest;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,20 +23,6 @@ public class ToDoService {
 
     public List<ToDo> findAll(){
         List<ToDoEntity> toDos = toDoRepository.findAll();
-        return toDos.stream()
-                .map(toDoTransformer::transformEntity)
-                .collect(Collectors.toList());
-    }
-
-    public List<ToDo> findByModule(String module){
-        List<ToDoEntity> toDos = toDoRepository.findAllByModule(module);
-        return toDos.stream()
-                .map(toDoTransformer::transformEntity)
-                .collect(Collectors.toList());
-    }
-
-    public List<ToDo> findByDate(LocalDate date){
-        List<ToDoEntity> toDos = toDoRepository.findAllByDate(date);
         return toDos.stream()
                 .map(toDoTransformer::transformEntity)
                 .collect(Collectors.toList());

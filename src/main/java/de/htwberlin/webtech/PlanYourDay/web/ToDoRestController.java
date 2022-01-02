@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -34,21 +33,11 @@ private final ToDoService toDoService;
         return toDo != null? ResponseEntity.ok(toDo) : ResponseEntity.notFound().build();
     }
 
-    @GetMapping(path = "/api/v1/todos/{module}")
-    public ResponseEntity<List<ToDo>> fetchToDosByModule(@PathVariable String module) {
-        return ResponseEntity.ok(toDoService.findByModule(module));
-    }
-
-    @GetMapping(path = "/api/v1/todos/{date}")
-    public ResponseEntity<List<ToDo>> fetchToDosByDate(@PathVariable LocalDate date) {
-        return ResponseEntity.ok(toDoService.findByDate(date));
-    }
-
     @PostMapping(path = "/api/v1/todos")
         public ResponseEntity<Void> createToDo(@Valid @RequestBody ToDoManipulationRequest request) throws URISyntaxException {
             var toDo = toDoService.create(request);
-            URI uri = new URI("/api/v1/todos/" + toDo.getId());
-            return ResponseEntity.created(uri).header("Access-Control-Expose-Headers","Location").build();
+            String uri = String.valueOf(toDo.getId());
+            return ResponseEntity.created(URI.create(uri)).header("Access-Control-Expose-Headers","Location").build();
         }
 
         @PutMapping(path = "/api/v1/todos/{id}")
