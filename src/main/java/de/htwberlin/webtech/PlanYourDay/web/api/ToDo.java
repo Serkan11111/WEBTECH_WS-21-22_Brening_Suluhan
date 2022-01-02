@@ -10,16 +10,16 @@ public class ToDo {
     private String module;
     private LocalDate date;
     private Boolean done;
-    private Boolean isFavorite;
+    private Boolean favorite;
 
-    public ToDo(long id, String titel, String description, String module, LocalDate date, Boolean done, Boolean isFavorite) {
+    public ToDo(long id, String titel, String description, String module, LocalDate date, Boolean done, Boolean favorite) {
         this.id = id;
         this.titel = titel;
         this.description = description;
         this.module = module;
         this.date = date;
         this.done = done;
-        this.isFavorite = isFavorite;
+        this.favorite = favorite;
     }
 
     public LocalDate getDate() {
@@ -76,11 +76,11 @@ public class ToDo {
         this.module = module;
     }
 
-    public Boolean isFavorite() {
-        return isFavorite;
+    public Boolean favorite() {
+        return favorite;
     }
 
     public void setFavorite(Boolean favorite) {
-        isFavorite = favorite;
+        this.favorite = favorite;
     }
 }

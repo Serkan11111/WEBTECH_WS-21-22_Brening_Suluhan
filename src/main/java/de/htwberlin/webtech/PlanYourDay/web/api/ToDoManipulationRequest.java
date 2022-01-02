@@ -15,7 +15,7 @@ public class ToDoManipulationRequest {
     @FutureOrPresent(message = "Bitte wähle das heutige Datum oder ein Datum in der Zukunft aus.")
     private LocalDate date;
     private Boolean done;
-    private Boolean isFavorite;
+    private Boolean favorite;
 
     public ToDoManipulationRequest() {
     }
@@ -63,10 +63,10 @@ public class ToDoManipulationRequest {
     }
 
     public Boolean getFavorite() {
-        return isFavorite;
+        return favorite;
     }
 
     public void setFavorite(Boolean favorite) {
-        isFavorite = favorite;
+        this.favorite = favorite;
     }
 }
