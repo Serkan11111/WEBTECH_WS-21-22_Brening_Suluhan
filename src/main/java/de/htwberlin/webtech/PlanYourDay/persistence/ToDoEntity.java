@@ -85,11 +85,11 @@ public class ToDoEntity {
         return done;
     }
 
-    public Boolean getFavorite() {
-        return favorite;
-    }
-
     public void setFavorite(Boolean favorite) {
         this.favorite = favorite;
+    }
+
+    public Boolean getFavorite() {
+        return favorite;
     }
 }

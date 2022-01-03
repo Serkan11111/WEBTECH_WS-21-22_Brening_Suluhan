@@ -76,7 +76,7 @@ public class ToDo {
         this.module = module;
     }
 
-    public Boolean favorite() {
+    public Boolean isFavorite() {
         return favorite;
     }
 
