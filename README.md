@@ -1,3 +1,5 @@
+[![CI](https://github.com/Serkan11111/WEBTECH_WS-21-22_Brening_Suluhan/actions/workflows/ci.yml/badge.svg)](https://github.com/Serkan11111/WEBTECH_WS-21-22_Brening_Suluhan/actions/workflows/ci.yml)
+
 "# Projekt-Suluhan-Brening" 
 
 Thema: Webbasierte To-Do-List Anwendung
